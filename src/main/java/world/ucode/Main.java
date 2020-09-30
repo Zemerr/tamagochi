@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import world.ucode.model.Gamemodel;
+import world.ucode.model.Selectmodel;
 import world.ucode.view.menu;
 import world.ucode.view.Scenes;
 
@@ -19,6 +21,9 @@ import world.ucode.view.Scenes;
 
 public class Main extends Application {
     public static Scenes allscenes;
+    public static  Gamemodel game = null;
+    public static Selectmodel select = null;
+
 
 
 
