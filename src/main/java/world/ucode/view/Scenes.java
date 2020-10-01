@@ -14,6 +14,7 @@ import java.util.HashMap;
 public class Scenes {
     public BorderPane selectmenu;
     public Pane mainmenu;
+    public BorderPane gamepane;
 
     private Scene game = null;
     private Scene menu = null;
@@ -30,7 +31,7 @@ public class Scenes {
     private void initmenu() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         String fxmlFile = "/fxml/Main_menu.fxml";
-        System.out.println("start");
+        System.out.println("start menu");
         Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
         mainmenu = (Pane) root;
         menu =  new Scene(root);
@@ -43,13 +44,24 @@ public class Scenes {
     private void initselect() throws IOException {
         FXMLLoader loader = new FXMLLoader();;
         String fxmlFile = "/fxml/Select_menu.fxml";
-        System.out.println("start");
+        System.out.println("start select");
         Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
         selectmenu = (BorderPane) root;
         select_menu =  new Scene(root);
         allscenes.put(GameScene.SELECT_MENU, select_menu);
-
     }
+
+    private void goGame() throws IOException {
+        FXMLLoader loader = new FXMLLoader();;
+        String fxmlFile = "/fxml/GameScene.fxml";
+        System.out.println("start game");
+        Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+        gamepane = (BorderPane) root;
+        game =  new Scene(root);
+        allscenes.put(GameScene.GAME, game);
+    }
+
+
 
     public enum GameScene {
         MAIN_MENU,
@@ -82,7 +94,7 @@ public class Scenes {
         });
         sceneinit.put(GameScene.GAME, () -> {
             try {
-                initmenu();
+                goGame();
             } catch (IOException e) {
                 e.printStackTrace();
             }

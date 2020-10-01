@@ -2,16 +2,23 @@ package world.ucode.model;
 
 public class Selectmodel {
 
-    public Character.Identity currentChar;
+
+
+    public Identity currentChar;
     public Character forselect;
 
+    public enum MenuStane {
+        SELECT_STANE,
+        GAME_STANE
+    }
 
-    public Selectmodel(Character.Identity ch) {
-        this.currentChar = ch;
-        forselect = new Character(ch, Character.MenuStane.SELECT_STANE);
+    public enum Identity {
+        PATRIC
     }
 
 
-
-
+    public Selectmodel(Identity ch) {
+        this.currentChar = ch;
+        forselect = new Character(ch, MenuStane.SELECT_STANE);
+    }
 }

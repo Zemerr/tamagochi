@@ -7,14 +7,14 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-public abstract class SpriteAnimation extends Transition{
-    private final ImageView imageView;
-    private final int count;
-    private final int columns;
-    private int offsetX;
-    private int offsetY;
-    private final int width;
-    private final int height;
+public abstract class SpriteAnimation  extends Transition{
+    protected final ImageView imageView;
+    protected final int count;
+    protected final int columns;
+    protected int offsetX;
+    protected int offsetY;
+    protected final int width;
+    protected final int height;
 
     private int lastIndex;
 
@@ -36,8 +36,7 @@ public abstract class SpriteAnimation extends Transition{
         setCycleCount(Animation.INDEFINITE);
         setInterpolator(Interpolator.LINEAR);
         this.imageView.setViewport(new Rectangle2D(offsetX, offsetY, width, height));
+
     }
-
-
     protected abstract void interpolate(double frac);
 }
