@@ -1,4 +1,4 @@
-package world.ucode.model;
+package world.ucode.model.characters;
 
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
@@ -8,15 +8,15 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public abstract class SpriteAnimation  extends Transition{
-    protected final ImageView imageView;
-    protected final int count;
-    protected final int columns;
+    protected ImageView imageView;
+    protected int count;
+    protected int columns;
     protected int offsetX;
     protected int offsetY;
-    protected final int width;
-    protected final int height;
+    protected int width;
+    protected int height;
 
-    private int lastIndex;
+
 
     public SpriteAnimation(
             ImageView imageView,
@@ -37,6 +37,9 @@ public abstract class SpriteAnimation  extends Transition{
         setInterpolator(Interpolator.LINEAR);
         this.imageView.setViewport(new Rectangle2D(offsetX, offsetY, width, height));
 
+
     }
     protected abstract void interpolate(double frac);
+
+    protected abstract void changeimage();
 }

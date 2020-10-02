@@ -1,5 +1,7 @@
 package world.ucode.model;
 
+import world.ucode.model.characters.Character;
+
 public class Gamemodel {
     public final Character tamagochi;
 

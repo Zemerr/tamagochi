@@ -110,8 +110,4 @@ public class Scenes {
         }
         window.setScene(needed);
     }
-
-
-
-
 }
