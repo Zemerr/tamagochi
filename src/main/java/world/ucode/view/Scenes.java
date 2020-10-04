@@ -3,10 +3,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import world.ucode.Main;
+import world.ucode.controller.Gamecontroller;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,6 +23,9 @@ public class Scenes {
     private Stage window;
     private HashMap<GameScene, Scene> allscenes = new HashMap<>();
     private HashMap<GameScene, Runnable> sceneinit = new HashMap<>();
+
+
+    public Gamecontroller gamecontroller;
 
 
 
@@ -53,11 +55,12 @@ public class Scenes {
 
     private void goGame() throws IOException {
         FXMLLoader loader = new FXMLLoader();;
-        String fxmlFile = "/fxml/GameScene.fxml";
+        String fxmlFile = "/GameScene.fxml";
         System.out.println("start game");
         Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
         gamepane = (BorderPane) root;
         game =  new Scene(root);
+        gamecontroller = loader.getController();
         allscenes.put(GameScene.GAME, game);
     }
 

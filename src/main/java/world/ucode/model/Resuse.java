@@ -18,6 +18,7 @@ public class Resuse {
 
     public Image smallPatrick;
     public Image patrickGoRight;
+    public Image patrickGoLeft;
     public HashMap<Selectmodel.Identity, Runnable> selectinitview = new HashMap<>();
     public HashMap<Selectmodel.Identity, Runnable> gameinitview = new HashMap<>();
 
@@ -28,6 +29,7 @@ public class Resuse {
         selectPatrick = new Image(iconStream);
         smallPatrick = new Image(iconStream1);
         patrickGoRight = new Image(Resuse.class.getResourceAsStream("/pic/patric/Patricgoright.png"));
+        patrickGoLeft = new Image(Resuse.class.getResourceAsStream("/pic/patric/Patricgoleft.png"));
     }
 
 
@@ -53,7 +55,7 @@ public class Resuse {
         int offsetY = 0;
         int width = 50;
         int height = 62;
-        character.animation = new Patric(character, Duration.millis(1300),count,columns,offsetX,offsetY,width,height, age, character);
+        character.animation = new Patric(character, Duration.millis(1500),count,columns,offsetX,offsetY,width,height, age);
     }
 
     public void setGameMap(Character character, Selectmodel.Identity individual, Character.Ages age) {

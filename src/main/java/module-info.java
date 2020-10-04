@@ -9,4 +9,5 @@ module utama {
     opens world.ucode.view to javafx.fxml;
     opens world.ucode to javafx.fxml;
     opens world.ucode.controller to javafx.fxml;
+    opens world.ucode.model to javafx.fxml;
 }

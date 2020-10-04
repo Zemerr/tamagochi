@@ -5,10 +5,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.controller.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.controller.MenuController">
    <children>
-      <Button fx:id="newgame" layoutX="343.0" layoutY="254.0" mnemonicParsing="false" onAction="#inselect" prefHeight="63.0" prefWidth="113.0" text="New Game" />
-      <Label fx:id="score" layoutX="309.0" layoutY="118.0" text="Welocme to Tamagochi game" />
+      <Button fx:id="newgame" layoutX="394.0" layoutY="369.0" mnemonicParsing="false" onAction="#inselect" prefHeight="63.0" prefWidth="113.0" text="New Game" />
+      <Label fx:id="score" layoutX="359.0" layoutY="203.0" text="Welocme to Tamagochi game" />
    </children>
    <opaqueInsets>
       <Insets />
