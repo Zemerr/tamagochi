@@ -75,6 +75,7 @@ public class Patric extends SpriteAnimation {
 
 
 
+
     private void childAnim(double frac) {
         int index = Math.min((int) Math.floor(super.count * frac), count - 1);
         int x = 0;
@@ -96,6 +97,18 @@ public class Patric extends SpriteAnimation {
             width = 55;
         }
         super.imageView.setViewport(new Rectangle2D(x, offsetY, width, height));
+    }
+
+
+    @Override
+    public void changeonPlay() {
+        stop();
+        currentim.setImage(Resuse.res.patricplay);
+        super.count = 5;
+        super.width = 147;
+        super.height = 103;
+        currentim.setViewport(new Rectangle2D(0, offsetY, 147, 103));
+        Main.game.charplay = true;
     }
 
 

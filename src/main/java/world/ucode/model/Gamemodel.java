@@ -14,7 +14,8 @@ import world.ucode.controller.Gamecontroller;
 
 
 public class Gamemodel {
-    private final Character tamagochi;
+    public final Character tamagochi;
+    public boolean charplay = false;
 
 
 
@@ -30,7 +31,7 @@ public class Gamemodel {
     private void upadate() {
         LocalTime currentTime = LocalTime.now();
         Main.allscenes.gamecontroller.changegameBar();
-        System.out.println(currentTime);
+        //System.out.println(currentTime);
     }
 
 }

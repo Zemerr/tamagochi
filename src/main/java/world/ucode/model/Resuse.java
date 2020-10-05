@@ -16,6 +16,7 @@ public class Resuse {
     private Image selectPatrick;
     private InputStream iconStream1 = Resuse.class.getResourceAsStream("/pic/patric/SmallPatric.png");
 
+    public Image patricplay;
     public Image smallPatrick;
     public Image patrickGoRight;
     public Image patrickGoLeft;
@@ -30,6 +31,7 @@ public class Resuse {
         smallPatrick = new Image(iconStream1);
         patrickGoRight = new Image(Resuse.class.getResourceAsStream("/pic/patric/Patricgoright.png"));
         patrickGoLeft = new Image(Resuse.class.getResourceAsStream("/pic/patric/Patricgoleft.png"));
+        patricplay = new Image(Resuse.class.getResourceAsStream("/pic/patric/patric_play.png"));
     }
 
 

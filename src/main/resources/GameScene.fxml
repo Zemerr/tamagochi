@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" styleClass="bg" stylesheets="@back.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.controller.Gamecontroller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" style="-fx-background-image: url(back4.gif); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.controller.Gamecontroller">
    <cursor>
       <Cursor fx:constant="DEFAULT" />
    </cursor>
@@ -56,17 +55,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ProgressBar fx:id="playbar" prefHeight="36.0" prefWidth="98.0" progress="0.66" rotate="-90.0" stylesheets="@back.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <ProgressBar fx:id="feedbar" layoutX="21.0" layoutY="56.0" prefHeight="34.0" prefWidth="99.0" progress="0.41" rotate="-90.0" stylesheets="@back.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <ProgressBar fx:id="givewaterbar" prefHeight="33.0" prefWidth="97.0" progress="0.78" rotate="-90.0" stylesheets="@back.css" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <ProgressBar fx:id="vedicinebar" prefHeight="33.0" prefWidth="97.0" progress="0.46" rotate="-90.0" stylesheets="@back.css" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <ProgressBar fx:id="cleanbar" prefHeight="30.0" prefWidth="102.0" progress="0.38" rotate="-90.0" stylesheets="@back.css" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <ProgressBar fx:id="playbar" prefHeight="36.0" prefWidth="98.0" progress="0.66" rotate="-90.0" style="-fx-accent: #ff0059;" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <ProgressBar fx:id="feedbar" layoutX="21.0" layoutY="56.0" prefHeight="34.0" prefWidth="99.0" progress="0.41" rotate="-90.0" style="-fx-accent: #ff0059;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <ProgressBar fx:id="givewaterbar" prefHeight="33.0" prefWidth="97.0" progress="0.78" rotate="-90.0" style="-fx-accent: #ff0059;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <ProgressBar fx:id="vedicinebar" prefHeight="33.0" prefWidth="97.0" progress="0.46" rotate="-90.0" style="-fx-accent: #ff0059;" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <ProgressBar fx:id="cleanbar" prefHeight="30.0" prefWidth="102.0" progress="0.38" rotate="-90.0" style="-fx-accent: #ff0059;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="70.0" prefWidth="144.0" text="Play filed" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
                <font>
                   <Font name="Copperplate Bold" size="21.0" />
                </font>
             </Label>
-            <Label alignment="BOTTOM_CENTER" prefHeight="58.0" prefWidth="144.0" text="66" textAlignment="CENTER" GridPane.rowIndex="1">
+            <Label fx:id="playlab" alignment="BOTTOM_CENTER" prefHeight="58.0" prefWidth="144.0" text="66" textAlignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font name="DIN Alternate Bold" size="27.0" />
                </font>
@@ -91,22 +90,22 @@
                   <Font name="Copperplate Bold" size="21.0" />
                </font>
             </Label>
-            <Label alignment="BOTTOM_CENTER" prefHeight="55.0" prefWidth="144.0" text="41" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="feedlab" alignment="BOTTOM_CENTER" prefHeight="55.0" prefWidth="144.0" text="41" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="DIN Alternate Bold" size="27.0" />
                </font>
             </Label>
-            <Label alignment="BOTTOM_CENTER" prefHeight="57.0" prefWidth="143.0" text="78" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label fx:id="waterlab" alignment="BOTTOM_CENTER" prefHeight="57.0" prefWidth="143.0" text="78" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="DIN Alternate Bold" size="27.0" />
                </font>
             </Label>
-            <Label alignment="BOTTOM_CENTER" prefHeight="67.0" prefWidth="143.0" text="46" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Label fx:id="medicinelab" alignment="BOTTOM_CENTER" prefHeight="67.0" prefWidth="143.0" text="46" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="DIN Alternate Bold" size="27.0" />
                </font>
             </Label>
-            <Label alignment="BOTTOM_CENTER" prefHeight="68.0" prefWidth="143.0" text="38" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Label fx:id="cleanlab" alignment="BOTTOM_CENTER" prefHeight="68.0" prefWidth="143.0" text="38" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <font>
                   <Font name="DIN Alternate Bold" size="27.0" />
                </font>
@@ -120,4 +119,7 @@
    <padding>
       <Insets top="20.0" />
    </padding>
+<!--    <stylesheets>&ndash;&gt;-->
+<!--        <URL value="@back.css" />-->
+<!--    </stylesheets>-->
 </BorderPane>

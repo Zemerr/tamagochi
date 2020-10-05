@@ -2,9 +2,11 @@ package world.ucode.view;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import world.ucode.Main;
 import world.ucode.controller.Gamecontroller;
 
 import java.io.IOException;
@@ -56,12 +58,43 @@ public class Scenes {
     private void goGame() throws IOException {
         FXMLLoader loader = new FXMLLoader();;
         String fxmlFile = "/GameScene.fxml";
-        System.out.println("start game");
+        //System.out.println("start game");
         Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
         gamepane = (BorderPane) root;
         game =  new Scene(root);
         gamecontroller = loader.getController();
         allscenes.put(GameScene.GAME, game);
+        setkey();
+    }
+
+    private void setkey() {
+
+        game.setOnKeyPressed(event -> {
+            KeyCode keyCode = event.getCode();
+            System.out.println("lolittaaaaas");
+        if (keyCode.equals(KeyCode.A) || keyCode.equals(KeyCode.D) || keyCode.equals(KeyCode.SPACE)) {
+            System.out.println("lolittaaaaa");
+            if (Main.game.charplay == true) {
+                Main.game.tamagochi.animation.play();
+                if (keyCode.equals(KeyCode.A))
+                    Main.game.tamagochi.setTranslateX(( Main.game.tamagochi.getTranslateX()  - 1));
+                if (keyCode.equals(KeyCode.D))
+                    Main.game.tamagochi.setTranslateX(( Main.game.tamagochi.getTranslateX()  +1 ));
+            }
+        }
+//            else {
+//        keys.put(keyCode, true);
+  //  }
+        });
+        game.setOnKeyReleased(event -> {
+            KeyCode keyCode = event.getCode();
+            if (keyCode.equals(KeyCode.A) || keyCode.equals(KeyCode.D)) {
+                if (Main.game.charplay == true) {
+                    Main.game.tamagochi.animation.pause();
+                }
+            }
+        //keys.put(event.getCode(), false);
+        });
     }
 
 
