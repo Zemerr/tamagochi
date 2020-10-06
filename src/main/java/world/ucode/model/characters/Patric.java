@@ -36,7 +36,7 @@ public class Patric extends SpriteAnimation {
             childAnim(frac);
         }
         else {
-            adultmove(frac);
+                adultmove(frac);
         }
     }
     
@@ -53,25 +53,27 @@ public class Patric extends SpriteAnimation {
     }
 
     private void adultmove(double frac) {
-        int index = Math.min((int)Math.floor(count*frac) + 1, count-1);
+        int index = Math.min((int) Math.floor(count * frac) + 1, count - 1);
         if (index == 1)
             index = 0;
         final int x = (index / columns) * width + offsetX;
         imageView.setViewport(new Rectangle2D(x, offsetY, width, height));
-        currentim.setTranslateX(currentim.getTranslateX() + delataMove);
-        if (currentim.getTranslateX() >= 350) {
-            stop();
-            delataMove = -0.5;
-            currentim.setImage(Resuse.res.patrickGoLeft);
-            play();
-        }
-        else if (currentim.getTranslateX() <= -350) {
-            stop();
-            delataMove = 0.5;
-            currentim.setImage(Resuse.res.patrickGoRight);
-            play();
+        if (!Main.game.charplay) {
+            currentim.setTranslateX(currentim.getTranslateX() + delataMove);
+            if (currentim.getTranslateX() >= 350) {
+                stop();
+                delataMove = -0.5;
+                currentim.setImage(Resuse.res.patrickGoLeft);
+                play();
+            } else if (currentim.getTranslateX() <= -350) {
+                stop();
+                delataMove = 0.5;
+                currentim.setImage(Resuse.res.patrickGoRight);
+                play();
+            }
         }
     }
+
 
 
 
@@ -108,7 +110,7 @@ public class Patric extends SpriteAnimation {
         super.width = 147;
         super.height = 103;
         currentim.setViewport(new Rectangle2D(0, offsetY, 147, 103));
-        Main.game.charplay = true;
+        //Main.game.charplay = true;
     }
 
 

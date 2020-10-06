@@ -12,10 +12,11 @@ import java.util.HashMap;
 public class Resuse {
     static public final Resuse res = new Resuse();
 
-    private InputStream iconStream = Resuse.class.getResourceAsStream("/pic/patric/Patric_child.png");
-    private Image selectPatrick;
-    private InputStream iconStream1 = Resuse.class.getResourceAsStream("/pic/patric/SmallPatric.png");
 
+    private Image selectPatrick;
+
+
+    public Image crabs;
     public Image patricplay;
     public Image smallPatrick;
     public Image patrickGoRight;
@@ -27,11 +28,12 @@ public class Resuse {
 
 
     private Resuse() {
-        selectPatrick = new Image(iconStream);
-        smallPatrick = new Image(iconStream1);
+        selectPatrick = new Image(Resuse.class.getResourceAsStream("/pic/patric/Patric_child.png"));
+        smallPatrick = new Image( Resuse.class.getResourceAsStream("/pic/patric/SmallPatric.png"));
         patrickGoRight = new Image(Resuse.class.getResourceAsStream("/pic/patric/Patricgoright.png"));
         patrickGoLeft = new Image(Resuse.class.getResourceAsStream("/pic/patric/Patricgoleft.png"));
         patricplay = new Image(Resuse.class.getResourceAsStream("/pic/patric/patric_play.png"));
+        crabs = new Image(Resuse.class.getResourceAsStream("/pic/crabs.png"));
     }
 
 

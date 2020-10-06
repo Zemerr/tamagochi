@@ -41,7 +41,7 @@ public abstract class SpriteAnimation  extends Transition{
     }
     protected abstract void interpolate(double frac);
 
-    protected abstract void changeonAdult();
+    public abstract void changeonAdult();
 
     public abstract void changeonPlay();
 }

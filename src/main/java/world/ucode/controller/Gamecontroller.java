@@ -40,10 +40,12 @@ public class Gamecontroller {
 
     @FXML
     public void playaction(ActionEvent actionEvent) {
-        System.out.println("playact");
-        Main.game.tamagochi.animation.changeonPlay();
+        if (Main.game.charplay == false) {
+            System.out.println("playact");
+            Main.game.tamagochi.animation.changeonPlay();
+            Main.game.animtimer.start();
+            Main.game.charplay = true;
+        }
     }
-
-
 
 }

@@ -70,30 +70,19 @@ public class Scenes {
     private void setkey() {
 
         game.setOnKeyPressed(event -> {
-            KeyCode keyCode = event.getCode();
-            System.out.println("lolittaaaaas");
-        if (keyCode.equals(KeyCode.A) || keyCode.equals(KeyCode.D) || keyCode.equals(KeyCode.SPACE)) {
-            System.out.println("lolittaaaaa");
             if (Main.game.charplay == true) {
-                Main.game.tamagochi.animation.play();
-                if (keyCode.equals(KeyCode.A))
-                    Main.game.tamagochi.setTranslateX(( Main.game.tamagochi.getTranslateX()  - 1));
-                if (keyCode.equals(KeyCode.D))
-                    Main.game.tamagochi.setTranslateX(( Main.game.tamagochi.getTranslateX()  +1 ));
-            }
-        }
-//            else {
-//        keys.put(keyCode, true);
-  //  }
-        });
+                 KeyCode keyCode = event.getCode();
+                 if (keyCode.equals(KeyCode.A) || keyCode.equals(KeyCode.D)) {
+                     Main.game.keys.put(keyCode, true);
+                 }
+            }});
         game.setOnKeyReleased(event -> {
-            KeyCode keyCode = event.getCode();
-            if (keyCode.equals(KeyCode.A) || keyCode.equals(KeyCode.D)) {
-                if (Main.game.charplay == true) {
-                    Main.game.tamagochi.animation.pause();
-                }
+            if (Main.game.charplay == true) {
+                KeyCode keyCode = event.getCode();
+                if (keyCode.equals(KeyCode.A) || keyCode.equals(KeyCode.D)) {
+                        Main.game.keys.put(keyCode, false);
+                    }
             }
-        //keys.put(event.getCode(), false);
         });
     }
 

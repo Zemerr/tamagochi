@@ -36,11 +36,6 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception, ClassNotFoundException {
             allscenes = new Scenes(stage);
             allscenes.activate(Scenes.GameScene.MAIN_MENU);
-
-//
-//        menu lol = loader.getController();
-//
-//        lol.change_but();
     }
 }
 
