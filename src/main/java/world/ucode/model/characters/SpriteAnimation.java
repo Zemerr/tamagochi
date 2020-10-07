@@ -7,7 +7,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-public abstract class SpriteAnimation  extends Transition{
+public abstract class SpriteAnimation extends Transition{
     protected ImageView imageView;
     protected int count;
     protected int columns;

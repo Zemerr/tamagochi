@@ -1,5 +1,6 @@
 package world.ucode.model.characters;
 
+import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import world.ucode.Main;
@@ -28,6 +29,7 @@ public class Character extends ImageView {
         else {
             Resuse.res.setGameMap(this, character, age);
             Resuse.res.gameinitview.get(character).run();
+            Main.allscenes.gamepane.setAlignment(this, Pos.BOTTOM_CENTER);
             Main.allscenes.gamepane.setCenter(this);
         }
     }

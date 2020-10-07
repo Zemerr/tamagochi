@@ -4,9 +4,13 @@ import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.fxml.FXMLLoader;
+
+import javafx.geometry.Bounds;
+
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import world.ucode.Main;
 import world.ucode.model.characters.Character;
@@ -14,6 +18,7 @@ import world.ucode.model.characters.Character;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import world.ucode.controller.Gamecontroller;
 
@@ -25,6 +30,15 @@ public class Gamemodel {
     public final AnimationTimer animtimer;
     private int playsec = 0;
     private ArrayList<ImageView> krabs = new ArrayList<>();
+    private final Random rand = new Random();
+
+    public int feedpos = 41;
+    public int waterpos = 78;
+    public int medicinepos = 46;
+    public int cleanpos = 38;
+
+
+
 
 
 
@@ -42,23 +56,23 @@ public class Gamemodel {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
         createkrabs();
+
     }
 
     private void upadate() {
         LocalTime currentTime = LocalTime.now();
-        Main.allscenes.gamecontroller.changegameBar();
-
-        if (charplay == true) {
+        if (charplay == false)
+            Main.allscenes.gamecontroller.changegameBar();
+        else {
             playsec++;
-            if (playsec == 5) {
+            if (krabs.isEmpty()) {
                 animtimer.stop();
                 tamagochi.animation.changeonAdult();
                 playsec = 0;
                 charplay = false;
+                createkrabs();
             }
         }
-        System.out.println(playsec);
-
     }
 
 
@@ -68,17 +82,51 @@ public class Gamemodel {
 
     private void upadatemove() {
         if(isPressed(KeyCode.A)) {
-            tamagochi.setTranslateX((Main.game.tamagochi.getTranslateX() - 3));
+            tamagochi.setTranslateX((Main.game.tamagochi.getTranslateX() - 6));
             tamagochi.animation.play();
         }
         if(isPressed(KeyCode.D)) {
-            tamagochi.setTranslateX((Main.game.tamagochi.getTranslateX() + 3));
+            tamagochi.setTranslateX((Main.game.tamagochi.getTranslateX() + 6));
             tamagochi.animation.play();
         }
+        movecrabs();
     }
 
     private void createkrabs() {
-        ImageView crabs = new ImageView(Resuse.res.crabs);
-        Main.allscenes.gamepane.getChildren().add(crabs);
+        int y = 0;
+        int x = 0;
+            for (int i = 0; i < 5; i++) {
+                ImageView crabs = new ImageView(Resuse.res.crabs);
+                crabs.setFitWidth(20);
+                crabs.setFitHeight(20);
+                x = rand.nextInt(850);
+                y = y + ((rand.nextInt(200)  * -1) - 150);
+                crabs.setTranslateX(x);
+                crabs.setTranslateY(y);
+                Main.allscenes.gamepane.getChildren().add(crabs);
+                krabs.add(crabs);
+            }
+    }
+
+    private void movecrabs() {
+        for (int i = 0; i < krabs.size(); i++) {
+            ImageView crab = krabs.get(i);
+            crab.setTranslateY(crab.getTranslateY() + 1);
+            if (crab.getTranslateY() > 800) {
+                Main.allscenes.gamepane.getChildren().remove(crab);
+                krabs.remove(crab);
+            }
+            Bounds b = tamagochi.getBoundsInParent();
+            Rectangle r = new Rectangle(b.getMinX(), (b.getMinY()+b.getMaxY())/2, b.getWidth(), b.getHeight()/2);
+
+            if (r.intersects(crab.getBoundsInParent()))
+                System.out.println("lol");
+
+
+        }
+    }
+
+    private void colision() {
+
     }
 }

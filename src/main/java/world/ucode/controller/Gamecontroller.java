@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 
 public class Gamecontroller {
 
-    @FXML private Label playlab;
+
     @FXML private Label feedlab;
     @FXML private Label waterlab;
     @FXML private Label medicinelab;
@@ -22,7 +22,6 @@ public class Gamecontroller {
 
 
     @FXML private ProgressBar feedbar;
-    @FXML private ProgressBar playbar;
     @FXML private ProgressBar givewaterbar;
     @FXML private ProgressBar vedicinebar;
     @FXML private ProgressBar cleanbar;
@@ -32,10 +31,14 @@ public class Gamecontroller {
 
     public void changegameBar() {
         feedbar.setProgress(feedbar.getProgress() - barspeed);
-        playbar.setProgress(playbar.getProgress() - barspeed);
         givewaterbar.setProgress(givewaterbar.getProgress() - barspeed);
         vedicinebar.setProgress(vedicinebar.getProgress() - barspeed);
         cleanbar.setProgress(cleanbar.getProgress() - barspeed);
+
+        feedlab.setText(Integer.toString((Main.game.feedpos)--));
+        waterlab.setText(Integer.toString((Main.game.waterpos)--));
+        medicinelab.setText(Integer.toString((Main.game.medicinepos)--));
+        cleanlab.setText(Integer.toString((Main.game.cleanpos)--));
     }
 
     @FXML
