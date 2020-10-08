@@ -19,6 +19,8 @@ public class Character extends ImageView {
     }
 
 
+
+
     public Character(Selectmodel.Identity character, Selectmodel.MenuStane stane) {
         age = Ages.CHILD;
         if (stane == Selectmodel.MenuStane.SELECT_STANE) {

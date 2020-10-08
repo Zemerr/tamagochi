@@ -15,7 +15,12 @@ public class Selectmodel {
     }
 
     public enum Identity {
-        PATRIC
+        PATRIC(80);
+
+        public final int  i;
+        Identity(int i) {
+            this.i = i;
+        }
     }
 
 

@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" style="-fx-background-image: url(back4.gif); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.controller.Gamecontroller">
@@ -18,7 +19,7 @@
       <Cursor fx:constant="DEFAULT" />
    </cursor>
    <bottom>
-      <GridPane alignment="CENTER" hgap="5.0" prefHeight="82.0" prefWidth="765.0" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" hgap="5.0" prefHeight="112.0" prefWidth="859.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.0" minWidth="10.0" prefWidth="407.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.0" minWidth="10.0" prefWidth="407.0" />
@@ -30,11 +31,31 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="Clean up" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="Give Medicine" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="Give Water" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="Feed" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="+10 Clean" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="+10 Medicine" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="+10 Water" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="+10 Feed" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
             <Button fx:id="playbut" mnemonicParsing="false" onAction="#playaction" prefHeight="55.0" prefWidth="106.0" text="Play" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="50.0" left="50.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="burger.png" />
+               </image>
+            </ImageView>
+            <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="58.0" prefWidth="139.0" text="10 crabs" textAlignment="CENTER" />
+            <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="58.0" prefWidth="140.0" text="10 crabs" GridPane.columnIndex="1" />
+            <Label text="Label" GridPane.columnIndex="2" />
+            <Label text="Label" GridPane.columnIndex="3" />
+            <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@burger.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets bottom="50.0" left="50.0" />
+               </GridPane.margin>
+            </ImageView>
          </children>
          <BorderPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -42,7 +63,7 @@
       </GridPane>
    </bottom>
    <top>
-      <GridPane maxHeight="124.0" opacity="0.83" prefHeight="102.0" prefWidth="805.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
+      <GridPane maxHeight="124.0" opacity="0.83" prefHeight="102.0" prefWidth="805.0" style="-fx-background-color: #a8d9a8;" BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -74,7 +95,7 @@
                   <Font name="Copperplate Bold" size="17.0" />
                </font>
             </Label>
-            <Label alignment="TOP_CENTER" prefHeight="57.0" prefWidth="206.0" text="Clean fied" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Label alignment="TOP_CENTER" prefHeight="57.0" prefWidth="206.0" text="Clean field" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Copperplate Bold" size="21.0" />
                </font>
@@ -103,7 +124,7 @@
                <image>
                   <Image url="burger.png" />
                </image></ImageView>
-            <Label alignment="CENTER" prefHeight="60.0" prefWidth="172.0" text="50" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <Label fx:id="crabs" alignment="CENTER" prefHeight="60.0" prefWidth="172.0" text="50" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="DIN Alternate Bold" size="24.0" />
                </font>
@@ -117,6 +138,27 @@
    <padding>
       <Insets top="20.0" />
    </padding>
+   <left>
+      <VBox prefHeight="385.0" prefWidth="63.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="148.0" text="Health" textAlignment="CENTER">
+               <font>
+                  <Font name="DIN Alternate Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="health" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="163.0" text="10" textAlignment="CENTER">
+               <font>
+                  <Font name="DIN Alternate Bold" size="36.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="heathbar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="144.0" progress="0.0" rotate="-90.0" style="-fx-accent: green;">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </ProgressBar>
+         </children>
+      </VBox>
+   </left>
 <!--    <stylesheets>&ndash;&gt;-->
 <!--        <URL value="@back.css" />-->
 <!--    </stylesheets>-->

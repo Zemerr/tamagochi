@@ -65,7 +65,7 @@ public class Patric extends SpriteAnimation {
                 delataMove = -0.5;
                 currentim.setImage(Resuse.res.patrickGoLeft);
                 play();
-            } else if (currentim.getTranslateX() <= -350) {
+            } else if (currentim.getTranslateX() <= -500) {
                 stop();
                 delataMove = 0.5;
                 currentim.setImage(Resuse.res.patrickGoRight);
