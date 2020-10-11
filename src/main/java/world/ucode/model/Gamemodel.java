@@ -15,19 +15,21 @@ import javafx.util.Duration;
 import world.ucode.Main;
 import world.ucode.model.characters.Character;
 
+import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
-import world.ucode.controller.Gamecontroller;
 
 
-public class Gamemodel {
+public class Gamemodel implements Builder{
     public final Character tamagochi;
     public boolean charplay = false;
     public HashMap<KeyCode, Boolean> keys = new HashMap<>();
     public final AnimationTimer animtimer;
+    final Timeline timeline = new Timeline();
     private ArrayList<ImageView> krabs = new ArrayList<>();
     private final Random rand = new Random();
 
@@ -36,24 +38,27 @@ public class Gamemodel {
     public int medicinepos;
     public int cleanpos;
     public int crabs;
-    public int ages;
+    public int health;
+
+    private int crabsspeed = 3;
 
 
 
 
 
 
-    final Timeline timeline = new Timeline();
-    public Gamemodel(Selectmodel.Identity ch, Selectmodel.MenuStane scene) {
+
+    public Gamemodel(Selectmodel.Identity ch, Selectmodel.MenuStane scene) throws SQLException, ClassNotFoundException {
         tamagochi = new Character(ch, scene);
-        ages = Main.select.currentChar.i;
-        feedpos = 41;
-        waterpos = 78;
-        medicinepos = 46;
-        cleanpos = 38;
-        crabs = 50;
-        Main.allscenes.gamecontroller.updatelab(ages, feedpos, waterpos, medicinepos, cleanpos, crabs);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), e -> upadate());
+        if (Datareserve.dataserve.first_enty) {
+            Datareserve.dataserve.health = Main.select.currentChar.i;
+            Database.createtable();
+            Datareserve.dataserve.first_enty = false;
+        }
+
+        setAll(Datareserve.dataserve.health,Datareserve.dataserve.feedpos, Datareserve.dataserve.waterpos, Datareserve.dataserve.medicinepos, Datareserve.dataserve.cleanpos, Datareserve.dataserve.crabs);
+        Main.allscenes.gamecontroller.updatelab(health, feedpos, waterpos, medicinepos, cleanpos, crabs);
+        KeyFrame kf = new KeyFrame(Duration.seconds(3), e -> upadate());
         animtimer = new AnimationTimer() {
             @Override
             public void handle(final long NOW) {
@@ -64,6 +69,7 @@ public class Gamemodel {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
         createkrabs();
+        Datareserve.dataserve.tosave = true;
 
     }
 
@@ -71,15 +77,9 @@ public class Gamemodel {
         LocalTime currentTime = LocalTime.now();
         if (charplay == false)
             Main.allscenes.gamecontroller.changegameBar();
-        else {
-            if (krabs.isEmpty()) {
-                animtimer.stop();
-                tamagochi.animation.changeonAdult();
-                charplay = false;
-                createkrabs();
-            }
-        }
-        //System.out.println(tamagochi.getTranslateX());
+        else
+            crabsspeed++;
+
     }
 
 
@@ -97,12 +97,21 @@ public class Gamemodel {
             tamagochi.animation.play();
         }
         movecrabs();
+        if (krabs.isEmpty()) {
+            animtimer.stop();
+            tamagochi.animation.changeonAdult();
+            charplay = false;
+            createkrabs();
+            for (Map.Entry<KeyCode, Boolean> iter: keys.entrySet())
+                iter.setValue(false);
+            crabsspeed = 3;
+        }
     }
 
     private void createkrabs() {
         int y = 0;
         int x = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 50; i++) {
                 ImageView crabs = new ImageView(Resuse.res.crabs);
                 crabs.setFitWidth(20);
                 crabs.setFitHeight(20);
@@ -118,7 +127,7 @@ public class Gamemodel {
     private void movecrabs() {
         for (int i = 0; i < krabs.size(); i++) {
             ImageView crab = krabs.get(i);
-            crab.setTranslateY(crab.getTranslateY() + 3);
+            crab.setTranslateY(crab.getTranslateY() + crabsspeed);
             if (crab.getTranslateY() > 800) {
                 Main.allscenes.gamepane.getChildren().remove(crab);
                 krabs.remove(crab);
@@ -136,6 +145,53 @@ public class Gamemodel {
             krabs.remove(crab);
             crabs++;
             Main.allscenes.gamecontroller.changecrabs();
+
         }
+    }
+
+    public void stopall() {
+        timeline.stop();
+        animtimer.stop();
+        tamagochi.animation.stop();
+    }
+
+
+    private void setAll(int health, int feedpos, int waterpos, int medicinepos, int cleanpos, int crabs) {
+        setcrabs(crabs);
+        setfeedpos(feedpos);
+        setwaterpos(waterpos);
+        setmedicinepos(medicinepos);
+        setcleanpos(cleanpos);
+        sethealth(health);
+    }
+
+    @Override
+    public void setcrabs(int crabs) {
+        this.crabs = crabs;
+    }
+
+    @Override
+    public void setfeedpos(int feedpos) {
+        this.feedpos = feedpos;
+    }
+
+    @Override
+    public void setwaterpos(int waterpos) {
+        this.waterpos = waterpos;
+    }
+
+    @Override
+    public void setmedicinepos(int medicinepos) {
+        this.medicinepos = medicinepos;
+    }
+
+    @Override
+    public void setcleanpos(int cleanpos) {
+        this.cleanpos = cleanpos;
+    }
+
+    @Override
+    public void sethealth(int health) {
+        this.health = health;
     }
 }

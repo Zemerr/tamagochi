@@ -5,9 +5,13 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import world.ucode.Main;
 import world.ucode.controller.Gamecontroller;
+import world.ucode.controller.MenuController;
+import world.ucode.model.Datareserve;
+import world.ucode.model.Resuse;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,10 +20,12 @@ public class Scenes {
     public BorderPane selectmenu;
     public Pane mainmenu;
     public BorderPane gamepane;
+    public Pane gameover;
 
     private Scene game = null;
     private Scene menu = null;
     private Scene select_menu = null;
+    private Scene game_over = null;
 
 
     private Stage window;
@@ -28,6 +34,12 @@ public class Scenes {
 
 
     public Gamecontroller gamecontroller;
+    public MenuController menuController;
+
+
+
+
+
 
 
 
@@ -39,6 +51,9 @@ public class Scenes {
         Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
         mainmenu = (Pane) root;
         menu =  new Scene(root);
+        menuController = loader.getController();
+        if (!Datareserve.dataserve.first_enty)
+            menuController.makeloadsvisible();
         allscenes.put(GameScene.MAIN_MENU, menu);
         window.sizeToScene();
         window.centerOnScreen();
@@ -58,13 +73,21 @@ public class Scenes {
     private void goGame() throws IOException {
         FXMLLoader loader = new FXMLLoader();;
         String fxmlFile = "/GameScene.fxml";
-        //System.out.println("start game");
         Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
         gamepane = (BorderPane) root;
         game =  new Scene(root);
         gamecontroller = loader.getController();
         allscenes.put(GameScene.GAME, game);
         setkey();
+    }
+
+    private void goGameOver() throws IOException {
+        FXMLLoader loader = new FXMLLoader();;
+        String fxmlFile = "/fxml/Game_over.fxml";
+        Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+        gameover = (Pane) root;
+        game_over =  new Scene(root);
+        allscenes.put(GameScene.GAME_OVER, game_over);
     }
 
     private void setkey() {
@@ -124,6 +147,20 @@ public class Scenes {
                 e.printStackTrace();
             }
         });
+        sceneinit.put(GameScene.GAME_OVER, () -> {
+            try {
+                goGameOver();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public void renew() {
+        selectmenu = null;
+        game = null;
+        allscenes.put(GameScene.SELECT_MENU, select_menu);
+        allscenes.put(GameScene.GAME, game);
     }
 
 

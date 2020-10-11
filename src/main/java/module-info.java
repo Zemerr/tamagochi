@@ -4,6 +4,7 @@ module utama {
     requires javafx.graphics;
     requires java.sql;
     requires javafx.fxml;
+    requires javafx.media;
     exports world.ucode;
     exports world.ucode.view;
     opens world.ucode.view to javafx.fxml;

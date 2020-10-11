@@ -2,18 +2,16 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.controller.SelectmenuController">
-   <left>
-      <Button fx:id="left" mnemonicParsing="false" prefHeight="39.0" prefWidth="59.0" text="&lt;---" BorderPane.alignment="CENTER" />
-   </left>
-   <right>
-      <Button fx:id="right" mnemonicParsing="false" prefHeight="39.0" prefWidth="59.0" text="---&gt;" BorderPane.alignment="CENTER" />
-   </right>
-   <bottom>
-      <Button fx:id="Select" mnemonicParsing="false" onAction="#ingame" prefHeight="44.0" prefWidth="72.0" text="Select" BorderPane.alignment="CENTER" />
-   </bottom>
    <top>
       <Button fx:id="Home" mnemonicParsing="false" onAction="#inmainmenu" prefHeight="48.0" prefWidth="59.0" text="Back" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -24,4 +22,53 @@
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
+   <bottom>
+      <GridPane prefHeight="66.0" prefWidth="880.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="Select" mnemonicParsing="false" onAction="#ingame" prefHeight="44.0" prefWidth="72.0" text="Select" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="left" minWidth="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="75.0" text="&lt;---" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="75.0" text="---&gt;" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </bottom>
+   <right>
+      <Pane prefHeight="646.0" prefWidth="172.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="petlab" alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="198.0" prefHeight="67.0" prefWidth="139.0" text="Name your pet:" textAlignment="CENTER">
+               <font>
+                  <Font name="DIN Alternate Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="petname" layoutX="10.0" layoutY="308.0" prefHeight="31.0" prefWidth="145.0" />
+         </children>
+      </Pane>
+   </right>
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="25.0" layoutY="174.0" prefHeight="29.0" prefWidth="57.0" text="Pet type:" />
+            <Label layoutX="106.0" layoutY="180.0" text="Patric" />
+            <Label layoutX="25.0" layoutY="234.0" text="Health:" />
+            <Label layoutX="106.0" layoutY="234.0" text="80" />
+         </children></Pane>
+   </left>
 </BorderPane>

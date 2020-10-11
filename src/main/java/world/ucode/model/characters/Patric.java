@@ -36,7 +36,7 @@ public class Patric extends SpriteAnimation {
             childAnim(frac);
         }
         else {
-                adultmove(frac);
+            adultmove(frac);
         }
     }
     

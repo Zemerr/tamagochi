@@ -2,11 +2,14 @@ package world.ucode.model;
 
 import javafx.scene.image.Image;
 import javafx.util.Duration;
-import world.ucode.Main;
+import javafx.scene.media.Media;
+
 import world.ucode.model.characters.Character;
 import world.ucode.model.characters.Patric;
 
-import java.io.InputStream;
+
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.HashMap;
 
 public class Resuse {
@@ -24,6 +27,9 @@ public class Resuse {
     public HashMap<Selectmodel.Identity, Runnable> selectinitview = new HashMap<>();
     public HashMap<Selectmodel.Identity, Runnable> gameinitview = new HashMap<>();
 
+    URL path = Resuse.class.getResource("/music.mp3");
+    public Media media;
+
 
 
 
@@ -34,6 +40,7 @@ public class Resuse {
         patrickGoLeft = new Image(Resuse.class.getResourceAsStream("/pic/patric/Patricgoleft.png"));
         patricplay = new Image(Resuse.class.getResourceAsStream("/pic/patric/patric_play.png"));
         crabs = new Image(Resuse.class.getResourceAsStream("/pic/crabs.png"));
+        media = new Media(path.toString());
     }
 
 

@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -31,29 +32,69 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="+10 Clean" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="+10 Medicine" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="+10 Water" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" text="+10 Feed" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <Button fx:id="playbut" mnemonicParsing="false" onAction="#playaction" prefHeight="55.0" prefWidth="106.0" text="Play" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#cleanact" prefHeight="55.0" prefWidth="106.0" text="+10 Clean" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Button mnemonicParsing="false" onAction="#medicineact" prefHeight="55.0" prefWidth="106.0" text="+10 Medicine" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Button mnemonicParsing="false" onAction="#wateract" prefHeight="55.0" prefWidth="106.0" text="+10 Water" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Button mnemonicParsing="false" onAction="#feedact" prefHeight="55.0" prefWidth="106.0" text="+10 Feed" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Button fx:id="playbut" mnemonicParsing="false" onAction="#playaction" prefHeight="83.0" prefWidth="106.0" text="Play" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="50.0" left="50.0" />
+                  <Insets bottom="40.0" left="40.0" />
                </GridPane.margin>
                <image>
                   <Image url="burger.png" />
                </image>
             </ImageView>
-            <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="58.0" prefWidth="139.0" text="10 crabs" textAlignment="CENTER" />
-            <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="58.0" prefWidth="140.0" text="10 crabs" GridPane.columnIndex="1" />
-            <Label text="Label" GridPane.columnIndex="2" />
-            <Label text="Label" GridPane.columnIndex="3" />
+            <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #a8d9a8;" text="10 crabs" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="DIN Alternate Bold" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="35.0" />
+               </GridPane.margin></Label>
+            <Label alignment="TOP_CENTER" contentDisplay="RIGHT" prefHeight="21.0" prefWidth="71.0" style="-fx-background-color: #a8d9a8;" text="10 crabs" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="DIN Alternate Bold" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="35.0" />
+               </GridPane.margin></Label>
+            <Label alignment="TOP_CENTER" contentDisplay="RIGHT" prefHeight="21.0" prefWidth="70.0" style="-fx-background-color: #a8d9a8;" text="10 crabs" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="DIN Alternate Bold" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="35.0" />
+               </GridPane.margin></Label>
+            <Label alignment="TOP_CENTER" contentDisplay="RIGHT" prefHeight="21.0" prefWidth="69.0" style="-fx-background-color: #a8d9a8;" text="10 crabs" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="DIN Alternate Bold" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="35.0" />
+               </GridPane.margin></Label>
             <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@burger.png" />
+                  <Image url="burger.png" />
                </image>
                <GridPane.margin>
-                  <Insets bottom="50.0" left="50.0" />
+                  <Insets bottom="40.0" left="40.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="40.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="burger.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="burger.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="40.0" />
                </GridPane.margin>
             </ImageView>
          </children>
@@ -151,7 +192,7 @@
                   <Font name="DIN Alternate Bold" size="36.0" />
                </font>
             </Label>
-            <ProgressBar fx:id="heathbar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="144.0" progress="0.0" rotate="-90.0" style="-fx-accent: green;">
+            <ProgressBar fx:id="heathbar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="144.0" progress="0.0" rotate="-90.0" style="-fx-accent: #05de05;">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
@@ -159,7 +200,11 @@
          </children>
       </VBox>
    </left>
-<!--    <stylesheets>&ndash;&gt;-->
-<!--        <URL value="@back.css" />-->
-<!--    </stylesheets>-->
+   <right>
+      <Pane prefHeight="486.0" prefWidth="67.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#gomenu" prefHeight="44.0" prefWidth="44.0" style="-fx-background-image: url(backhome.jpg); -fx-background-size: 100% 100%;" />
+         </children>
+      </Pane>
+   </right>
 </BorderPane>
