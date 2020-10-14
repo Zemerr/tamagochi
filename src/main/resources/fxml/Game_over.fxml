@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" style="-fx-background-image: url(back1.gif); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" style="-fx-background-image: url(back1.gif); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.controller.Gameovercontroller">
    <children>
-      <Button layoutX="371.0" layoutY="315.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="159.0" text="Main Menu">
+      <Button layoutX="371.0" layoutY="315.0" mnemonicParsing="false" onAction="#goinmenu" prefHeight="75.0" prefWidth="159.0" text="Main Menu">
          <font>
             <Font name="DIN Alternate Bold" size="17.0" />
          </font></Button>

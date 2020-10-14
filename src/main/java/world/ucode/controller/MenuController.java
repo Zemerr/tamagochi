@@ -23,6 +23,18 @@ public class MenuController implements Initializable {
     public Pane restartpane;
     public Pane musicpane;
 
+    public void makealldis() {
+        restartpane.setVisible(false);
+        restartpane.setDisable(true);
+
+        loadbut.setVisible(false);
+        loadbut.setDisable(true);
+
+        Resumebut.setVisible(false);
+        Resumebut.setDisable(true);
+
+    }
+
     public void inselect(ActionEvent event) {
         if (Datareserve.dataserve.first_enty) {
             Main.allscenes.activate(Scenes.GameScene.SELECT_MENU);
