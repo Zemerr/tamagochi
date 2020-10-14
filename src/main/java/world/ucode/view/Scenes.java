@@ -47,7 +47,7 @@ public class Scenes {
     private void initmenu() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         String fxmlFile = "/fxml/Main_menu.fxml";
-        System.out.println("start menu");
+        //System.out.println("start menu");
         Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
         mainmenu = (Pane) root;
         menu =  new Scene(root);
@@ -63,7 +63,7 @@ public class Scenes {
     private void initselect() throws IOException {
         FXMLLoader loader = new FXMLLoader();;
         String fxmlFile = "/fxml/Select_menu.fxml";
-        System.out.println("start select");
+        //System.out.println("start select");
         Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
         selectmenu = (BorderPane) root;
         select_menu =  new Scene(root);

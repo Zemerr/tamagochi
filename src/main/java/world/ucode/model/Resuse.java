@@ -27,7 +27,7 @@ public class Resuse {
     public HashMap<Selectmodel.Identity, Runnable> selectinitview = new HashMap<>();
     public HashMap<Selectmodel.Identity, Runnable> gameinitview = new HashMap<>();
 
-    URL path = Resuse.class.getResource("/music.mp3");
+    URL path = Resuse.class.getResource("/mus.mp3");
     public Media media;
 
 

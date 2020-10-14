@@ -25,7 +25,7 @@ public class SelectmenuController implements Initializable {
     }
 
     public void ingame(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        System.out.println("ingmae");
+        //System.out.println("ingmae");
         String name = petname.getText();
         if (name.isEmpty()) {
             petlab.setTextFill(Color.RED);
@@ -34,11 +34,11 @@ public class SelectmenuController implements Initializable {
 
             Main.allscenes.activate(Scenes.GameScene.GAME);
             if (Main.game == null) {
-                System.out.println("there is null too");
+                //System.out.println("there is null too");
                 Main.game = new Gamemodel(Main.select.currentChar, Selectmodel.MenuStane.GAME_STANE);
             }
             else {
-                System.out.println("not lnull but whuy?");
+                //System.out.println("not lnull but whuy?");
             }
         }
     }

@@ -35,7 +35,7 @@ public class Database {
         DatabaseMetaData dbm = conn.getMetaData();
         ResultSet tables = dbm.getTables(null, null, "hiscore", null);
         if (tables.next()) {
-            System.out.println("lolita");
+
             resSet = statmt.executeQuery("SELECT * FROM hiscore WHERE id = 1");
             Datareserve.dataserve.feedpos = resSet.getInt("feedpos");
             Datareserve.dataserve.waterpos = resSet.getInt("waterpos");
@@ -43,15 +43,11 @@ public class Database {
             Datareserve.dataserve.crabs = resSet.getInt("crabs");
             Datareserve.dataserve.health = resSet.getInt("health");
             Datareserve.dataserve.cleanpos = resSet.getInt("cleanpos");
-            //Datareserve.dataserve.updateval();
-            System.out.println("lolita");
 
         }
         else {
             Datareserve.dataserve.first_enty = true;
-            System.out.println("not");
 
-            System.out.println("not now");
         }
         CloseDB();
     }
@@ -75,8 +71,8 @@ public class Database {
     public static void createtable() throws ClassNotFoundException, SQLException {
         Conn();
         statmt = conn.createStatement();
-        statmt.execute("CREATE TABLE if not exists 'hiscore' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'feedpos' INTEGER, 'waterpos' INTEGER, 'medicinepos' INTEGER, 'crabs' INTEGER, 'health' INTEGER, 'cleanpos' INTEGER);");
-        statmt.execute("INSERT INTO hiscore VALUES (1,41, 78, 46, 50, 80, 38);");
+        statmt.execute("CREATE TABLE if not exists 'hiscore' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'feedpos' INTEGER, 'waterpos' INTEGER, 'medicinepos' INTEGER, 'crabs' INTEGER, 'health' INTEGER, 'cleanpos' INTEGER, 'date' date);");
+        statmt.execute("INSERT INTO hiscore VALUES (1,41, 78, 46, 50, 80, 38, datetime('now', 'localtime'));");
         CloseDB();
     }
 

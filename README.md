@@ -1,1 +1,2 @@
-# tamagochi
+# My own tamagochi
+

@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.controller.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" style="-fx-background-image: url(bottom.gif); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.controller.MenuController">
    <children>
       <Button fx:id="newgame" layoutX="394.0" layoutY="332.0" mnemonicParsing="false" onAction="#inselect" prefHeight="49.0" prefWidth="112.0" text="New Game" />
       <Label fx:id="score" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="360.0" layoutY="124.0" prefHeight="17.0" prefWidth="192.0" text="Welocme to Tamagochi game" textAlignment="CENTER" />
-      <Button layoutX="394.0" layoutY="501.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="112.0" text="Settings" />
+      <Button layoutX="394.0" layoutY="501.0" mnemonicParsing="false" onAction="#setings" prefHeight="49.0" prefWidth="112.0" text="Settings" />
       <Button fx:id="loadbut" disable="true" layoutX="394.0" layoutY="417.0" mnemonicParsing="false" onAction="#loadGame" prefHeight="49.0" prefWidth="112.0" text="Load Game" visible="false" />
       <Button fx:id="Resumebut" disable="true" layoutX="394.0" layoutY="259.0" mnemonicParsing="false" onAction="#resume" prefHeight="49.0" prefWidth="112.0" text="Resume" visible="false" />
       <Pane fx:id="restartpane" disable="true" layoutX="186.0" layoutY="169.0" prefHeight="481.0" prefWidth="540.0" style="-fx-background-color: white;" visible="false">
@@ -23,6 +23,17 @@
             <Button fx:id="yesRenew" layoutX="57.0" layoutY="425.0" mnemonicParsing="false" onAction="#yesRenewact" text="Yes" />
             <Button fx:id="noback" layoutX="450.0" layoutY="425.0" mnemonicParsing="false" onAction="#nobackact" text="No" />
          </children></Pane>
+      <Pane fx:id="musicpane" disable="true" layoutX="217.0" layoutY="217.0" prefHeight="402.0" prefWidth="496.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="208.0" prefWidth="496.0" style="-fx-background-color: #ff9999;" text="Music ON/OFF">
+               <font>
+                  <Font name="DIN Alternate Bold" size="23.0" />
+               </font>
+            </Label>
+            <Button layoutX="219.0" layoutY="246.0" mnemonicParsing="false" onAction="#offmus" text="Off" />
+            <Button layoutX="219.0" layoutY="327.0" mnemonicParsing="false" onAction="#onmus" prefHeight="27.0" prefWidth="37.0" text="On" />
+         </children>
+      </Pane>
    </children>
    <opaqueInsets>
       <Insets />

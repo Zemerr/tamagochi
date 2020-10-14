@@ -8,6 +8,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 import world.ucode.model.*;
 import world.ucode.view.Scenes;
 
@@ -19,28 +20,29 @@ public class Main extends Application {
     public static Scenes allscenes;
     public static  Gamemodel game = null;
     public static Selectmodel select = null;
-    private static MediaPlayer mp;
+    public static MediaPlayer mp;
 
-    //MediaPlayer mp;
+
 
 
 
 
     public static void main(String[] args) throws Exception {
-        //mp = new MediaPlayer(Resuse.res.media);
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws Exception, ClassNotFoundException {
-        URL path = Resuse.class.getResource("/music.mp3");
-        Media media = new Media(path.toString());
-        mp = new MediaPlayer(media);
-
+        mp = new MediaPlayer(Resuse.res.media);
+        mp.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                mp.seek(Duration.ZERO);
+            }
+        });
         mp.setOnError(()->
                 System.out.println("media error"+mp.getError().toString()));
         mp.setAutoPlay(true);
-        //mp.setVolume(10);
+
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent e) {
@@ -53,7 +55,6 @@ public class Main extends Application {
                         throwables.printStackTrace();
                     }
                }
-                System.out.println("exit");
                 System.exit(0);
             }
         });

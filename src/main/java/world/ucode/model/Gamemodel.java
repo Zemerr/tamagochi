@@ -74,11 +74,12 @@ public class Gamemodel implements Builder{
     }
 
     private void upadate() {
-        LocalTime currentTime = LocalTime.now();
+        int  sec = LocalTime.now().getSecond();
         if (charplay == false)
             Main.allscenes.gamecontroller.changegameBar();
         else
             crabsspeed++;
+        //System.out.println(sec);
 
     }
 
@@ -89,10 +90,12 @@ public class Gamemodel implements Builder{
 
     private void upadatemove() {
         if(isPressed(KeyCode.A) && tamagochi.getTranslateX() - 6 > -500) {
+            tamagochi.setScaleX(1);
             tamagochi.setTranslateX((tamagochi.getTranslateX() - 6 ));
             tamagochi.animation.play();
         }
         if(isPressed(KeyCode.D) && tamagochi.getTranslateX() - 6 < 350 ) {
+            tamagochi.setScaleX(-1);
             tamagochi.setTranslateX((tamagochi.getTranslateX() + 6 ));
             tamagochi.animation.play();
         }

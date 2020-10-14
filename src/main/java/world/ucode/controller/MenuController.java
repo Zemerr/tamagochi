@@ -21,6 +21,7 @@ public class MenuController implements Initializable {
     public Button loadbut;
     public Button Resumebut;
     public Pane restartpane;
+    public Pane musicpane;
 
     public void inselect(ActionEvent event) {
         if (Datareserve.dataserve.first_enty) {
@@ -51,7 +52,7 @@ public class MenuController implements Initializable {
     public void loadGame(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         Main.allscenes.activate(Scenes.GameScene.GAME);
         if (Main.game == null) {
-            System.out.println("there is null");
+            //System.out.println("there is null");
             Main.game = new Gamemodel(Selectmodel.Identity.PATRIC, Selectmodel.MenuStane.GAME_STANE);
         }
     }
@@ -93,5 +94,23 @@ public class MenuController implements Initializable {
     public void nobackact(ActionEvent actionEvent) {
         restartpane.setVisible(false);
         restartpane.setDisable(true);
+    }
+
+    public void offmus(ActionEvent actionEvent) {
+        Main.mp.pause();
+        musicpane.setVisible(false);
+        musicpane.setDisable(true);
+    }
+
+    public void onmus(ActionEvent actionEvent) {
+        Main.mp.play();
+
+        musicpane.setVisible(false);
+        musicpane.setDisable(true);
+    }
+
+    public void setings(ActionEvent actionEvent) {
+        musicpane.setVisible(true);
+        musicpane.setDisable(false);
     }
 }
