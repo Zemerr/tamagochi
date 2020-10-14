@@ -1,10 +1,10 @@
 # My own tamagochi
 I am not UI/UX designer, so don't judge me strong.
 
-##Usage
+## Usage
 mvn javafx:run
 
-##Scren
+## Screen
 
 ![screen](https://telegra.ph/file/5eb7a2019ba7b40829a7e.png)
 
